@@ -1,0 +1,158 @@
+
+/* FOR TABS 
+/* Container holding the image and the text */
+.logo {
+    position: relative;
+    max-width:  100%;
+    height: auto;
+}
+  /* header text*/
+.title {
+    position: center;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-size: x-large;
+    font-family: Georgia;
+}
+/* gets the "full page tabs" look */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Georgia;
+}
+/* Style tab buttons */
+.tab {
+    background-color: silver;
+    color: black;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 20%;
+    
+}
+.tab:hover {
+    background-color: lightslategrey;
+}
+/* Style the content of tabs and height:100% so that content can fill full page */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 100px 20px;
+    height: 100%;
+}
+#About {
+  background-color: black;
+  overflow: auto;
+}
+#Information {background-color:black;}
+#Journaling {
+  background-color: black;
+  overflow: auto;
+}
+#Resources {
+  background-color: black;
+  overflow: auto;
+}
+#Trivia {background-color: black;}
+
+/*Accordiondropdown for Information tab*/
+.accordiondropdown {
+  background-color: tomato;
+  color: black;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  border-style: solid;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+  text-align:center
+}
+
+.active, .accordiondropdown:hover {
+  background-color: white; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: salmon;
+  overflow: hidden;
+}
+
+.info-text{
+  color:black;
+}
+/*END OF ACCORDIONDRODOWN*/
+
+/*START OF RESOURES CSS*/
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+
+.container {
+  padding: 0 16px;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.title {
+  color: White;
+  font-size: 100px;
+}
+
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.button:hover {
+  background-color: slategray;
+}
+
+.resource-text-styling {
+  color: black;
+}
+/*END OF RESOURCES CSS*/
+
+/*ADJUST IMAGES OF CAROUSEL*/
+.carousel-size{
+  width: 900px;
+  height: 900px;
+  margin: 0px auto;
+}

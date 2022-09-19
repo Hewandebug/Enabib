@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="trivia.css">
+    <script>
+        //questions outline for quiz
+        const questions = [
+                    {
+                        question: "Is a person more likely to get attacked by a shark while they are on their period?",
+                        choiceA: "Yes",
+                        choiceB: "I'm not sure",
+                        choiceC: "Maybe",
+                        choiceD: "No",
+                        answer: "choiceD"
+                    },
+                    {
+                        question: "What are ways to reduce Menstrual Health Stigma?",
+                        choiceA: "Support Menstrual Activism Movements.",
+                        choiceB: "Educate yourself on myths and misconception on Menstruation.",
+                        choiceC: "Donate to organizations dedicated to reducing Menstrual Health Stigma.",
+                        choiceD: "All of the Above",
+                        answer: "choiceD"
+                    },
+                    {
+                        question: "Why is Menstrual Health Stigma Harmful?",
+                        choiceA: "Menstrual Health Stigma makes people who menstruate feel ashamed of their natural bodily functions.",
+                        choiceB: "Menstrual Health Stigma perpetuates inaccurate and harmful logic about menstruators.",
+                        choiceC: "Menstrual Health Stigma can lead to policies and behaviors that perpetuate stigma against menstruators.",
+                        choiceD: "All of the Above",
+                        answer: "choiceD"
+                    },
+                    {
+                        question: "What behaviors should everyone do to support menstruators and the normalization of menstruation (if they feel comfortable enough)?",
+                        choiceA: "Treating the topic of periods like something that should be a “shhh” or private topic.",
+                        choiceB: "Judging people on their period for being open about their experiences.",
+                        choiceC: "Share information and support menstruation activism.",
+                        choiceD: "All of the above",
+                        answer: "choiceD"
+                    },
+                    {
+                        question: "Why is the menstrual cycle not synonymous with menstruation?",
+                        choiceA: "Menstruation refers to the first phase of the menstrual cycle, while menstrual cycle refers to the entire cycle.",
+                        choiceB: "Trick question: Menstruation is synonymous with menstrual cycle",
+                        choiceC: "Menstruation refers to the end of a women’s menstrual cycle",
+                        choiceD: "Menstruation is when a menstruator experiences pms while the menstrual cycle is the period in which they are actively shedding from the uterus lining.",
+                        answer: "choiceA"
+                    },
+                    {
+                        question: "True or False: Your period can stop if you are too thin (Below a BMI of 18.5)?",
+                        choiceA: "True",
+                        choiceB: "False",
+                        choiceC: "n/a",
+                        choiceD: "n/a",
+                        answer: "choiceA"
+                    },
+                    {
+                        question: "True or False: It is unsafe to skip a period?",
+                        choiceA: "True",
+                        choiceB: "False",
+                        choiceC: "n/a",
+                        choiceD: "n/a",
+                        answer: "choiceB"
+                    },
+                    {
+                        question: "Which factors exacerbate period poverty?",
+                        choiceA: "Luxury tax",
+                        choiceB: "Pink tax",
+                        choiceC: "Lack of government programs funding menstruator’s access to menstrual products",
+                        choiceD: "All of the above",
+                        answer: "choiceD"
+                    },
+                    {
+                        question: "Only girls and women menstruate?",
+                        choiceA: "True",
+                        choiceB: "False",
+                        choiceC: "n/a",
+                        choiceD: "n/a",
+                        answer: "choiceB"
+                    },
+                    {
+                        question: "On average, how long does a menstrual cycle last?",
+                        choiceA: "18 days",
+                        choiceB: "29 days",
+                        choiceC: "28 days",
+                        choiceD: "21 days",
+                        answer: "choiceC"
+                    },
+        ]
+        //array to hold questions
+        let Questions = [] 
+        //function to put 10 questions to Questions array
+        function generateQuestion() { 
+                //method was used from inspiration code cited in design md
+                while (Questions.length <= 9) {
+                    const random = questions[Math.floor(Math.random() * questions.length)]
+                    if (!Questions.includes(random)) {
+                    Questions.push(random)
+                    }
+                }
+        }
+        //wrong answers picked by player
+        let wrongAnswers = 0 
+        //to determine what question we are on in array
+        let arrayValue = 0 
+        //current question number
+        let currentNumber = 1 
+        //current player score
+        let playerScore = 0  
+        //function for displaying next question in the array + displaying players and quiz information
+        function nextQ(arrayNumber) {
+            //generates questions for test 
+            generateQuestion()
+            //places the current question as liveQ
+            const liveQ = Questions[arrayNumber]
+            document.getElementById("first-label").innerHTML = liveQ.choiceA;
+            document.getElementById("second-label").innerHTML = liveQ.choiceB;
+            document.getElementById("third-label").innerHTML = liveQ.choiceC;
+            document.getElementById("fourth-label").innerHTML = liveQ.choiceD;
+            document.getElementById("Q-#").innerHTML = currentNumber
+            document.getElementById("player-score").innerHTML = playerScore
+            document.getElementById("display-question").innerHTML = liveQ.question;
+        }
+        //checks Question for right answer
+        function checkQ() {
+            //is dealing with the current question being used
+            const liveQ = Questions[arrayValue] 
+            //is dealing with the current ansd comparing it correct question
+            const liveQAns = liveQ.answer 
+            //gets all elements with name 'choice' 
+            const choices = document.getElementsByName("choice"); 
+            //restarts the correct choice for next question
+            let answer = null
+            //get's correct's input with correct answer
+            choices.forEach((choice) => {
+                if (choice.value === liveQAns) {
+                    answer = choice.labels[0].id
+                }
+            })
+            //check to make sure it is correct answer 
+            choices.forEach((choice) => {
+                if (choice.checked === true && choice.value === liveQAns) {
+                    //changes selected answer to green
+                    document.getElementById(answer).style.backgroundColor = "green"
+                    //add one to player score
+                    playerScore++ 
+                    //adding one to array value to display the following question
+                    arrayValue++ 
+                    //waits to move on until next question is loaded properly
+                    setTimeout(() => {
+                        currentNumber++
+                    }, 1000)
+                }
+                else if (choice.checked && choice.value !== liveQAns) {
+                    const wrongLabelId = choice.labels[0].id
+                    //changes selected answer to red 
+                    document.getElementById(wrongLabelId).style.backgroundColor = "red"
+                    //changes the correct answer to green to reveal what it was
+                    document.getElementById(answer).style.backgroundColor = "green"
+                    //adds 1 to amount of wrong answers
+                    wrongAnswers++ 
+                    //adding 1 to array value to display the following question
+                    arrayValue++
+                    //set to delay question number till when next question loads
+                    setTimeout(() => {
+                        currentNumber++
+                    }, 1000)
+                }
+            })
+        }
+        //used when moving onto the next question 
+        function moveToNextQ() {
+            //check player answer
+            checkQ() 
+            //unchecks all buttons for next question
+            resetChoices()
+            //delays next question from displaying
+            setTimeout(() => {
+                if (arrayValue <= 9) {
+                    //displays next question
+                    nextQ(arrayValue)
+                }
+                else {
+                    //ends game once all 10 questions have been reached
+                    endGame()
+                }
+                //resets the background
+                resetchoiceBackground()
+            }, 1000);
+        }
+        //resets background color for choices
+        function resetchoiceBackground() {
+            const choices = document.getElementsByName("choice");
+            choices.forEach((choice) => {
+                document.getElementById(choice.labels[0].id).style.backgroundColor = ""
+            })
+        }
+        //unchecks all buttons
+        function resetChoices() {
+            const choices = document.getElementsByName("choice");
+            for (let i = 0; i < choices.length; i++) {
+                choices[i].checked = false;
+            }
+        }
+        //function for when all questions are answered to reset everything
+        function endGame() {
+            let endComment = null
+            let endCommentColor = null
+            //condition check for player endComment and endComment color
+            if (playerScore <= 3) {
+                endComment = "Bad Result: Keep studying in order to prove you've learned more about Menstrual Health!"
+                endCommentColor = "red"
+            }
+            else if (playerScore >= 4 && playerScore <= 7) {
+                endComment = "Average Result: You did alright, but keep studying we know you could do better!"
+                endCommentColor = "orange"
+            }
+            else if (playerScore > 8) {
+                endComment = "Great Result: Congrats you are very educated about Menstrual Health!"
+                endCommentColor = "green"
+            }
+            //determines player grade
+            const playerGrade = (playerScore / 10) * 100
+            //displays results
+            document.getElementById('endComment').innerHTML = endComment
+            document.getElementById('endComment').style.color = endCommentColor
+            document.getElementById('grade-percentage').innerHTML = playerGrade
+            document.getElementById('wrong-answers').innerHTML = wrongAnswers
+            document.getElementById('right-answers').innerHTML = playerScore
+            document.getElementById('score-popUp').style.display = "flex"
+        }
+        //resets game
+        function closeScorepopUp() {
+            currentNumber = 1
+            playerScore = 0
+            wrongAnswers = 0
+            arrayValue = 0
+            Questions = []
+            nextQ(arrayValue)
+            document.getElementById('score-popUp').style.display = "none"
+        }
+    </script>
+</head>
+<h1 style="text-align: center">Menstruation Trivia Quiz</h1>
+<h1 style="text-align: center"><a href="https://cs50finalpro-code50-95549691-4j65wvx5g3jgw6-8080.githubpreview.dev/MHCS50.html">Back to Home Page</a></h1>
+<body onload="nextQ(0)">
+    <main>
+        <!--when quiz ends-->
+        <div class="popUp-holder" id="score-popUp">
+            <div class="popUp-content-holder">
+                <!--congrats page-->
+                <h1>Congratulations, You Finished.</h1>
+                <!--to list data-->
+                <div class="grade">
+                    <p>Wrong Answers : <span id="wrong-answers"></span></p>
+                    <p>Right Answers : <span id="right-answers"></span></p>
+                    <p>Grade : <span id="grade-percentage"></span>%</p>
+                    <p><span id="endComment"></span></p>
+                </div>
+                <!--to reset game-->
+                <div class="popUp-button-holder">
+                    <button onclick="closeScorepopUp()">Continue</button>
+                </div>
+            </div>
+        </div>
+        <!--end of quiz details-->
+        <div class="game-quiz-holder">
+            <div class="game-details-holder">
+                <h1>Score : <span id="player-score"></span> / 10</h1>
+                <h1> Question : <span id="Q-#"></span> / 10</h1>
+            </div>
+            <div class="game-question-holder">
+                <h1 id="display-question"></h1>
+            </div>
+            <div class="game-choices-holder">
+               <div class="popUp-holder" id="choice-popUp">
+                    <div class="popUp-content-holder">
+                         <div class="popUp-button-holder">
+                            <button onclick="closechoicepopUp()">Continue</button>
+                        </div>
+                    </div>
+            </div>
+               <!--For Choice One-->
+                <span>
+                    <input type="radio" id="choice-one" name="choice" class="radio" value="choiceA"/>
+                    <label for="choice-one" class="choice" id="first-label"></label>
+                </span>
+                <!--For Choice Two-->
+                <span>
+                    <input type="radio" id="choice-two" name="choice" class="radio" value="choiceB"/>
+                    <label for="choice-two" class="choice" id="second-label"></label>
+                </span>
+                <!--For Choice Three-->
+                <span>
+                    <input type="radio" id="choice-three" name="choice" class="radio" value="choiceC"/>
+                    <label for="choice-three" class="choice" id="third-label"></label>
+                </span>
+                <!--For Choice Four-->
+                <span>
+                    <input type="radio" id="choice-four" name="choice" class="radio" value="choiceD"/>
+                    <label for="choice-four" class="choice" id="fourth-label"></label>
+                </span>
+            </div>
+            <!--For Next Question-->
+            <div class="next-button-holder">
+                <button onclick="moveToNextQ()">Next Question</button>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

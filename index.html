@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="MHCS50.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+        <script>
+        // Create Default Homepage
+            function openPage(pageName, element, color) {
+            // 
+                var i, tabcontent, tab;
+                tabcontent = 
+            document.getElementsByClassName("tabcontent");
+                for (i = 0; i < tabcontent.length; i++) {
+                    tabcontent[i].style.display = "none";
+                }
+            // Remove the background color of all tabs/buttons
+                tab = document.getElementsByClassName("tab");
+                for (i = 0; i < tab.length; i++) {
+                    tab[i].style.backgroundColor = "";
+                }
+            // Show the specific tab content
+            document.getElementById(pageName).style.display = 
+            "block";
+            // Add the specific color to the button used to open the tab content
+            element.style.backgroundColor = color;
+            }
+            // Get the element with id="default" and click on it
+            document.getElementById("default").click();
+
+            //SLIDE
+            var slideIndex = 1;
+            showSlides(slideIndex);
+            // Next/previous controls
+            function plusSlides(n) {
+                slideIndex += n
+                showSlides(slideIndex);
+            }
+            // Thumbnail image controls
+            function currentSlide(n) {
+                slideIndex = n
+                showSlides(slideIndex);
+            }
+            function showSlides(n) {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              console.log(n)
+              if (n > slides.length) {slideIndex = 1}
+              if (n < 1) {slideIndex = slides.length}
+              else {slideIndex = n}
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+              }
+              for (i = 0; i < dots.length; i++) {
+                  dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";
+              console.log(slideIndex,slides[slideIndex-1])
+              dots[slideIndex-1].className += " active";
+            }
+        </script>
+    </head>
+
+    <body>
+        <div class="logo">
+            <h1 class="title">Enabib</h1>
+            <img src="https://images.everydayhealth.com/images/national-period-day-2020-1440x810.jpg" alt="Norway" " style="width:100%;">
+            <div class="title"> 
+        </div>
+        </div>
+        <button class="tab" onclick="openPage('About', this,
+        'white')">About</button>
+        <button class="tab" onclick="openPage('Information', this, 
+        'white')">Information</button>
+        <button class="tab" onclick="openPage('Resources', this, 
+        'white')">Resources</button>
+        <button class="tab" onclick="openPage('Journaling', this, 
+        'white')" id="defaultOpen">Journaling</button>
+        <button class="tab" onclick="openPage('Trivia', this, 
+        'white')">Trivia</button>
+        <div id="info-text">
+        <div id="Information" class="tabcontent">
+            <h1 style="text-align:center">Information on Menstrual Health</h1>
+            <button class="accordiondropdown">The Basic of Menstrual Health</button>
+            <div class="panel">
+                <h2 style="text-align:center"><u>The Basics of Menstrual Health</u></h2>
+                    <h3><u>What is Menstruation?</u></h3> 
+                        <p>Menstruation, also known as menses or cycle, is the monthly shedding of the lining of the uterus. Shedding results if pregnancy has not occurred. The menstrual cycle averages for about 28 days although a cycle can range anywhere from 21 days to 35 days. 
+                        <br>
+                        <p>Menses: The first phase of a cycle is called the menses phase in which the lining of the uterus is actually shed, resulting in bleeding that may last anywhere from 2 to 7 days.
+                        <br>
+                        <p>Follicular: During this phase (occurs from day 6 to 14), the levels of the hormone estrogen rises resulting in the thickening of the uterus lining called the endometrium. During days 10 to 14, another follicle-stimulating hormone is active during this time in which a developing follicle will form an egg called an ovum.
+                        <br>
+                        <p>Ovulation: This phase takes place around day 14 (on a 28-day cycle) and is when the egg or ovum is released
+                        <br>
+                        <p>Luteal Phase: Occurring from day 15 to day 28, after the egg is released from the ovary and travels to the uterus, the levels of the hormone progesterone rise to prepare the uterine lining for pregnancy. If the egg is not fertilized, estrogen and progesterone levels drop and the uterus lining is shed.
+                    <h3><u>When does it begin?</u></h3>
+                        <p>Menstruation typically begins at the age of 12, but in some cases people can start menstruating as young as 8 years old or as late as 16 years old. Typically menstruation stops around 51.
+                    <h3><u>Symptoms</u></h3>
+                        <ul>
+                            <li>Moodiness</li>
+                            <li>Trouble sleeping</li>
+                            <li>Food cravings</li>
+                            <li>Cramps in the lower abdomen and back</li>
+                            <li>Bloating</li>
+                            <li>Tenderness in the breasts</li>
+                            <li>Acne</li>
+                        </ul>
+                    <h3><u>Who Menstruates?</u></h3> 
+                        <p>Periods and womanhood are widely seen as being synonymous, however, women are not the only ones that get periods. Trans, inter-sex, and non-binary people get periods too. This misconception comes about because of the association of periods to gender. Gender is not a decisive factor on who gets periods. Because our gender and our biological sex, defined by our reproductive organs, are two (distinct aspects of our idenity). We may choose not to identify with our biological sex, meaning people other than ciswomen can mensturate too.
+                    <h3><u>Menstrual Hygiene</u></h3>
+                        <h4>Pads vs Tampons vs Cups</h4>
+                            <dl>
+                                <dd>Choosing your method of sanitation is important to ensuring you remain comfortable for the remainder of your period. </dd>
+                                <dd>Pads: A one-use cotton-made cloth that is worn on your underwear </dd>
+                                <dd>Tampons: A one-use cotton-made device inserted into the  vagina to absorb any bleeding. </dd>
+                                <dd>Cups: A reusable bell-shaped device that is placed against the cervix, collecting menstrual fluid. </dd>
+                            </dl>
+                        <h4>Changing regularly</h4>
+                            <p> When blood leaves the body it gets contaminated with bodily organisms. When pads, tampons, or cups are not changed regularly, these organisms can rapidly multiple and lead to urinary tract infections, vaginal infections, and skin rashes.
+                        <h4>Washing</h4>
+                            <p> The vagina has self cleaning mechanisms that maintains a natural balance of good and bad bacteria. Using soap can kill good bacteria, disrupting this natural balance, leading to infections.  
+                    <h3><u>Period Abnormalities</u></h3>
+                        <h4>Irregular periods</h4>
+                            <dl>
+                                <dd>Some menstruaters can experience irregular periods where the time between each cycle changes or the number of days that period lasts varies. This may be a result of changes in the body’s level of hormones (estrogen and progesterone) which can disrupt normal patterns in one’s cycle. </dd>
+                                <dt>Other causes could be:</dt>
+                                    <dd>Too much exercise</dd>
+                                    <dd>Stress</dd>
+                                    <dd>Polycystic Ovary Syndrome (PCOS)</dd>
+                            </dl>
+                        <h4>Disorders</h4>
+                            <dl>
+                                <dt>Polycystic Ovary Syndrom</dt>
+                                <dd>“a condition in which the ovaries produce an abnormal amount of androgens, male sex hormones that are usually present in women in small amounts.”</dd>
+                                <dt>Endometriosis </dt>
+                                <dd>A disorder that occurs when the lining meant to grow inside the uterus, the endometrium, grows outside the uterus. This causes extremely painful cramps, excessive bleeding, and even infertility.</dd>
+                                <p>if you believe you have signs and symptoms that indicate endometriosis, consult with your doctor.</p>
+                              </dl>
+            </div>
+            <button class="accordiondropdown">Period Poverty</button>
+            <div class="panel">
+                <h3 style="text-align:center"><u>What is Period Poverty</u></h3>
+                <p>“Period poverty” refers to the prevalent phenomena of being unable to afford products such as pads, tampons, or liners to manage menstrual bleeding. With 1 in 5 girls missing school due to lack of menstrual products1, period poverty is an important, yet often ignored, public health crisis.</p>
+            <h3><u>Disproportionate effect of period poverty</u></h3> 
+                <p>Period poverty disproportionately affects low income menstruators as access to period products depends largely on being able to afford them. This disproportionate effect on low income menstruators is further exacerbated by taxes that increase the product of period products such as the luxury tax and pink tax. The luxury tax is additional tax applied to products deemed by the governments as not necessities but rather luxuries. In many parts of the world, period products fall under this tax despite their clear necessity for menstruators around the world. Taxes like the luxury tax make period products even more inaccessible subjecting to more and more menstruators to period poverty. Pink tax is the trenc in which products marketed towards women cost more than ones marketed towards men or are gender neutral. Although period products are not solely for women, they are often marketed towards them resulting in this “tax” being applied </p>
+            <h3><u>Period poverties health effects</u></h3>
+                <p>When menstruators are unable to afford access to period products they often turn to unhygienic alternatives such as rags, paper towels, and reusing pads. This places these menstruators at a heightened risk for urogenital infections, such as urinary tract infections and bacterial vaginosis. These products are also associated with outcomes such as skin irritation, vaginal itching, and white or green discharge3. Further, the emotional toll accompanying lack of access is related to poor mental health outcomes, such as elevated anxiety, depression, and distress. </p>
+            <h3><u>How to address period poverty</u></h3>
+                <p>In order to ensure everyone is able to afford the period products that they need we need to first address the core of the issue which is stigma. Stigma surrounding periods is why period poverty is not treated like the public health crisis that it is. Treating period poverty like a public health crisis requires government funding for period products and getting rid of taxes and customs that treat period products like luxuries instead of necessities such as the luxury tax and the pink tax </p>
+            </div>
+            <button class="accordiondropdown">Stigma</button>
+            <div class="panel">
+                <h3 style="text-align:center"><u>What is Menstrual Health Stigma?</u></h3> 
+                <p>Menstrual Health Stigma refers to belief systems that perpetuate false and unjust notions about menstruation that lead menstruators to feel the topic of menstruation is something to avoid discussing or something to feel ashamed of for experiencing. Generally, it is also a broad term that relates to the discrimiation menstruators face.</p>
+                <h3><u>How does Stigma Operate?</u></h3>
+                    <p>At ENABIB, we have isolated that stigma mainly operates through the three M’s: Misinformation, Myths, and Misconceptions</p>
+                    <h4><u>Misinformation / Lack of Education</u></h4>
+                        <p>Misinformation or Lack of Education categorizes the subset of information that inadequately depicts what menstruation, specifically periods, are. For example, due to the conversation around menstruation being suppressed, beliefs about people on their periods being unclean are widespread. Periods are viewed as dirty or a topic to be embarrassed about.</p>
+                        <p>Additionally, given that menstruation, specifically periods, is something that is frowned upon as a social topic, it is no surprise that lack of education on the topic leads to unhealthy and harmful perspectives on the issue. For example in Papua New Guinea, during interviews carried out by IPPF with men about periods, one responded: “When I hear the word menstruation, I know that a girl or woman is bleeding and I know that she is now ready for marriage.” Another said that a girl getting her first period means that “she is grown up and she is able to have sex.” 
+                    <h4><u>Myths</u> </h4>
+                        <p>Myths categorize information on menstruation, specifically periods, that have been passed down culturally or socially because of lack of education. For example, Ideas such as being on your period means you can’t have sex with you significant other, or that becasue you are on your period you are more likely to be attacked by a shark when swimming which are both inaccurate would fall under this category.</p>
+                    <h4><u>Misconceptions</u> </h4>
+                        <p>Misconceptions are ideas that are predetermined about menstruation, specifically periods, because of false notions that typically arise from lack of education.</p>
+                <h3><u>Impacts of Stigma</u></h3>
+                    <h4><u>Discrimination</u> </h4> 
+                        <p>Due to unjust notions of menstruation, specifically periods, being widespread, discriminatory behavior against menstruators becomes normalized.</p>
+                        <p>How does discrimination look?</p>
+                        <p> Discrimination can look like euphemisms, a mild or indirect word or expression substituted for one considered to be too harsh or blunt when referring to something unpleasant or embarrassing, to jokes about the topic or even policy action that inadequetely tackles the issue of lack of education about menstruation in schools.</p>
+                    <h4><u>Perpetuation of Harmful Social/Cultural Beliefs</u></h4>
+                        <p>As stated above, menstrual health discirimation generally speaks to actions, behaviors, and perspectives in society that make menstruators feel ashamed of their natural bodily actions. Without targeting the issue, society will find itself unable to fight against discriminatory social/cultural beliefs that are normalized.</p>
+                    <h4><u>Leaves Menstruators Susceptible</u></h4> 
+                        <p>Without targeting menstrual health stigma, menstruators are susceptible to their mental health being impacted and general health being at stake, below are just a few ways that it can happen.</p>
+                        <ul>
+                            <p>“For example, in Venezuela, many women are forced to sleep in huts for the duration of their menstruation. In rural Ghana, menstruating women are forbidden from entering a house with a man or cooking food. Many young women don’t have access to any type of sanitary pad, which can cause them to miss school and cause them to be 70% more likely to have reproductive tract infections.”</p>
+                            <p>“In Kenya, studies have shown that girls will miss an average of four days of school each month — adding up to about 20% of the school year. Women face discrimination, harassment, and are looked down upon because of menstruation, as it is seen as a form of weakness rather than a necessary biological function.”</p>
+                            <p>"Recently, a 2014 study in Nairobi’s Mathare Valley slum found that over 75% of girls had no idea what menstruation was before they got their first period. This caused them to feel anxious, confused and ashamed about their periods.”</p>
+                        </ul>
+                <h3><u>How to prevent Stigma</u></h3> 
+                    <h4><u>Teach Quality Education on Menstruation to Everyone</u></h4> 
+                        <p>Not only is access to education on menstruation important, but it is important to realize access =/= quality. When policies are being written down, education is fundemental because without it there is a possibility we can be providing education on the topic but not be providing QUALITY education on the topic that can ensure the safety and stigmatization of menstruators.</p>
+                    <h4><u>Start Educating youth ASAP</u></h4>
+                        <p>There is a fallacy that the topic of menstruation requires maturity. At ENABIB, we believe to paternalize younger children by advocating that they cannot learn about the topic of menstruation at a young age, only assisting the revolving door of not targeting this issue at the root of the problem. We as a society must do better and prioritize educating children as soon as we can.</p>
+                    <h4><u>If not a Mensturator, be an Ally</u></h4>
+                        <p>Regardless of whether you are a menstruator, at ENABIB, we believe that everyone has a stake in the movement. Therefore, we hope everyone makes the initiative to help the liberation of menstrual health knowledge.</p>
+                    <h4><u>Support Menstrual Activism Movements</u></h4>  
+                        <p>There are many movements occurring in the status quo that are seeking to do the work we at ENABIB support. You can assist as well! Like, Share, Follow and Donate to organization that support this movement because every action is important to stopping the issue that so deeply permeates across the world.</p>
+                <h3><u>What is Menstrual Health Stigma?</u></h3> 
+                <p>Menstrual Health Stigma refers to belief systems that perpetuate false and unjust notions about menstruation that lead menstruators to feel the topic of menstruation is something to avoid discussing or something to feel ashamed of for experiencing. Generally, it is also a broad term that relates to the discrimiation menstruators face.</p>
+                <h3><u>How does Stigma Operate?</u></h3>
+                    <p>At ENABIB, we have isolated that stigma mainly operates through the three M’s: Misinformation, Myths, and Misconceptions</p>
+                    <h4><u>Misinformation / Lack of Education</u></h4>
+                        <p>Misinformation or Lack of Education categorizes the subset of information that inadequately depicts what menstruation, specifically periods, are. For example, due to the conversation around menstruation being suppressed, beliefs about people on their periods being unclean are widespread. Periods are viewed as dirty or a topic to be embarrassed about.</p>
+                        <p>Additionally, given that menstruation, specifically periods, is something that is frowned upon as a social topic, it is no surprise that lack of education on the topic leads to unhealthy and harmful perspectives on the issue. For example in Papua New Guinea, during interviews carried out by IPPF with men about periods, one responded: “When I hear the word menstruation, I know that a girl or woman is bleeding and I know that she is now ready for marriage.” Another said that a girl getting her first period means that “she is grown up and she is able to have sex.” 
+                    <h4><u>Myths</u> </h4>
+                        <p>Myths categorize information on menstruation, specifically periods, that have been passed down culturally or socially because of lack of education. For example, Ideas such as being on your period means you can’t have sex with you significant other, or that becasue you are on your period you are more likely to be attacked by a shark when swimming which are both inaccurate would fall under this category.</p>
+                    <h4><u>Misconceptions</u> </h4>
+                        <p>Misconceptions are ideas that are predetermined about menstruation, specifically periods, because of false notions that typically arise from lack of education.</p>
+                <h3><u>Impacts of Stigma</u></h3>
+                    <h4><u>Discrimination</u> </h4> 
+                        <p>Due to unjust notions of menstruation, specifically periods, being widespread, discriminatory behavior against menstruators becomes normalized.</p>
+                        <p>How does discrimination look?</p>
+                        <p> Discrimination can look like euphemisms, a mild or indirect word or expression substituted for one considered to be too harsh or blunt when referring to something unpleasant or embarrassing, to jokes about the topic or even policy action that inadequetely tackles the issue of lack of education about menstruation in schools.</p>
+                    <h4><u>Perpetuation of Harmful Social/Cultural Beliefs</u></h4>
+                        <p>As stated above, menstrual health discirimation generally speaks to actions, behaviors, and perspectives in society that make menstruators feel ashamed of their natural bodily actions. Without targeting the issue, society will find itself unable to fight against discriminatory social/cultural beliefs that are normalized.</p>
+                    <h4><u>Leaves Menstruators Susceptible</u></h4> 
+                        <p>Without targeting menstrual health stigma, menstruators are susceptible to their mental health being impacted and general health being at stake, below are just a few ways that it can happen.</p>
+                        <ul>
+                            <p>“For example, in Venezuela, many women are forced to sleep in huts for the duration of their menstruation. In rural Ghana, menstruating women are forbidden from entering a house with a man or cooking food. Many young women don’t have access to any type of sanitary pad, which can cause them to miss school and cause them to be 70% more likely to have reproductive tract infections.”</p>
+                            <p>“Recently, a 2014 study in Nairobi’s Mathare Valley slum found that over 75% of girls had no idea what menstruation was before they got their first period. This caused them to feel anxious, confused and ashamed about their periods.”</p>
+                        </ul>
+                <h3><u>How to prevent Stigma</u></h3> 
+                    <h4><u>Teach Quality Education on Menstruation to Everyone</u></h4> 
+                        <p>Not only is access to education on menstruation important, but it is important to realize access =/= quality. When policies are being written down, education is fundemental because without it there is a possibility we can be providing education on the topic but not be providing QUALITY education on the topic that can ensure the safety and stigmatization of menstruators.</p>
+                    <h4><u>Start Educating youth ASAP</u></h4>
+                        <p>There is a fallacy that the topic of menstruation requires maturity. At ENABIB, we believe to paternalize younger children by advocating that they cannot learn about the topic of menstruation at a young age, only assisting the revolving door of not targeting this issue at the root of the problem. We as a society must do better and prioritize educating children as soon as we can.</p>
+                    <h4><u>If not a Mensturator, be an Ally</u></h4>
+                        <p>Regardless of whether you are a menstruator, at ENABIB, we believe that everyone has a stake in the movement. Therefore, we hope everyone makes the initiative to help the liberation of menstrual health knowledge.</p>
+                    <h4><u>Support Menstrual Activism Movements</u></h4>  
+                        <p>There are many movements occurring in the status quo that are seeking to do the work we at ENABIB support. You can assist as well! Like, Share, Follow and Donate to organization that support this movement because every action is important to stopping the issue that so deeply permeates across the world.</p>
+            </div>
+        </div>
+
+            <script>
+            var acc = 
+            document.getElementsByClassName("accordiondropdown");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", 
+            function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                  panel.style.display = "block";
+                }
+              });
+            }
+            </script>
+
+        </div>
+
+        <div id="Journaling" class="tabcontent">
+            <head>   
+                    <title> Journaling </title> 
+                    </head> 
+                    <script> 
+                    function getRandomPrompt() { 
+                    //declare an array to store the images 
+                    var Prompt = new Array(); 
+                     
+                    //insert the URL of images in array 
+                    Prompt[0] = "https://i.pinimg.com/564x/83/2d/fa/832dfabb9be94330ce40d5a0d2d7d7ee.jpg"; 
+                    Prompt[1] = "https://i.pinimg.com/564x/61/16/9e/61169e19b3640f5c1614b2430b2dbe3a.jpg"; 
+                    Prompt[2] = "https://i.pinimg.com/564x/2f/c8/c9/2fc8c92f98e3002b524eb796767053bc.jpg"; 
+                    Prompt[3] = "https://i.pinimg.com/564x/df/bb/72/dfbb72c7dd48de3f4c8a2ac2fa45aab4.jpg"; 
+                    Prompt[4] = "https://i.pinimg.com/564x/df/bb/72/dfbb72c7dd48de3f4c8a2ac2fa45aab4.jpg"; 
+                     
+                    //loop to display five randomly chosen images at once 
+                    for (let i=0; i< 1; i++) { 
+                    //generate a number and provide to the image to generate randomly 
+                    var number = Math.floor(Math.random()*Prompt.length); 
+                    //print the images generated by a random number 
+                    document.getElementById("result").innerHTML += '<img src="'+ Prompt[number] +'" style="width:250px" />'; 
+                    } 
+                    } 
+                     
+                    </script> 
+                    <body> 
+                    <center><h1 style="color:white"> Journaling Prompts </h1></center> 
+                    <center><h4> Click the button below to generate a prompt reflecting on Menstrual Health!: </h4> </center>
+                    <!-- call user-defined getRandomPrompt function to generate prompt -->   
+                    <center><button onclick = "getRandomPrompt()"> Generate prompt </button> </center>
+                    <br> <br> 
+                    <center><span id="result" align="center"> </span></center>  
+                       
+                    </body>
+            </div>
+        </div>
+  
+        <div id="Resources" class="tabcontent">
+            <h1 style="text-align:center">Resources</h1>
+            <!--START OF RESOURCE BOXES-->
+    <div class="resource-text-styling">
+            <br>
+
+            <div class="row">
+                <div class="column">
+                    <div class="card">
+                        <img src="https://i.pinimg.com/474x/fb/0c/06/fb0c068093325f1f6068b25dd4f0a63d.jpg" 
+                    alt="Jane" style="width:100%">
+                          <div class="container">
+                            <p>Links:</p>
+                            <p>http://www.distributingdignity.org</p>
+                            <p>https://shesupply.org </p>
+                            <p><button 
+                        class="button">Contact</button></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column">
+                        <div class="card">
+                            <img src="https://i.pinimg.com/474x/42/52/3a/42523aa4798a888efe80d115233b699f.jpg " 
+                alt="Mike" style="width:100%">
+                    <div class="container">
+                        <p>Links:</p>
+                        <p>https://period.org/get-involved</p>
+                        <p>https://www.unicef.org/media/91341/file/UNICEF-Guidance-menstrual-health-hygiene-2019.pdf</p>
+                        <p>https://www.transhub.org.au/menstruation</p>
+                        <p>https://www.nbcnews.com/feature/nbc-out/transgender-men-pain-menstruation-more-just-physical-n1113961</p>
+                        <p><button 
+                class="button">Contact</button></p>
+                    </div>
+                </div>
+            </div>
+  
+            <div class="column">
+                <div class="card">
+                    <img src="https://i.pinimg.com/474x/4d/c4/38/4dc438c225f22250da1c70b4b17e4506.jpg" 
+        alt="John" style="width:100%">
+                    <div class="container">
+
+                    <p>Links:</p>
+                    <p>https://actionnetwork.org/petitions/sign-now-end-period-poverty</p>
+                    <p>https://allianceforperiodsupplies.org/our-work/</p>
+                    <p><button 
+        class="button">Contact</button></p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+            <!--END OF RESOURCE BOXES-->
+        </div>
+        <div id="About" class="tabcontent">
+            <h1 style="text-align:center">About</h1>
+            <p style="text-align:center">Our mission is to establish a platform to provide accessible and accurate information about Menstruation, specifically periods, to normalize and destigmatize discussions around the topic. The platform we created demystifies and introduces accurate information on periods to educate individuals and promote a healthier outlook on the topic of menstruation. </p>
+
+            <!--START Slideshow-->
+            <div class="carousel-size"> 
+            <div id="carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel" data-slide-to="1"></li>
+                  <li data-target="#carousel" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <img class="d-block w-100" src="https://i.pinimg.com/564x/2f/c7/8c/2fc78cb0c9e2ea2d00e63dcd0a72e079.jpg" alt="Information">
+                        
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="https://i.pinimg.com/564x/35/87/64/358764154d541c01d09705b394531e22.jpg" alt="Resources">
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="https://i.pinimg.com/564x/6d/91/f8/6d91f8e525adc11d143031d91ae565e6.jpg" alt="Journaling">
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+            </div>
+
+            <!--END Slideshow-->
+        </div>
+
+        <div id="Trivia" class="tabcontent">
+            <h1 style="text-align:center" >Ready For a Round of Trivia?</h1>
+            <br>
+            <h3 style="text-align:center">Press below to begin!</h3>
+            <div class= "here">
+            <h3 style="text-align:center"><a href="https://cs50finalpro-code50-95549691-4j65wvx5g3jgw6-8080.githubpreview.dev/trivia.html">Here</a></h3>
+            </div>
+        </div>
+
+ 
+    </body>
+
+</html>
